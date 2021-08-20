@@ -15,12 +15,20 @@ $('.footer-newsletter > .row > div:first-child').remove();
 $('.footer-newsletter .footer-submit span').text('Inscrever-se');
 $('.footer-4').remove();
 
-const el = document.querySelector(".header")
-const observerMenu = new IntersectionObserver( 
-  ([e]) => e.target.classList.toggle("is-pinned", e.intersectionRatio < 1),
-  { threshold: [1] }
-);
-observerMenu.observe(el);
+// const el = document.querySelector(".header")
+// const observerMenu = new IntersectionObserver( 
+//   ([e]) => e.target.classList.toggle("is-pinned", e.intersectionRatio < 1),
+//   { threshold: [1] }
+// );
+// observerMenu.observe(el);
+
+window.onscroll = function() {
+  if ($(window).scrollTop() > 0) {
+    $('.header').addClass('is-pinned');
+  }else{
+    $('.header').removeClass('is-pinned');
+  }        
+};
 
 
 let awa_sobre = "<p><b>AWA é uma marca de joalheria e peças de vestir.</b><br> Nossa proposta é desenvolver peças autênticas através de poéticas. Joias contemporâneas artform. ​ Peças de vestir atemporais, pensadas com modelagens experimentais e criadas para serem únicas.</p>";
@@ -88,11 +96,58 @@ window.addEventListener('resize', function(event) {
 
 $('body').append('<a id="whatsapp-button" class="btn btn-lg svg-btn" role="button" href="https://wa.me/5521995179008" target="_blank"><i class="icon icon-whatsapp"></i></a>');
 
+$('.awa_text_outside .banner').each(function(){
+  let oObj = $(this).find('.banner-link').clone();
+  oObj.find('.banner-mask').remove();
+  oObj.attr('class','outside_title');
+  oObj.find('.banner-info').removeAttr('class');
+  //oObj.find('.banner-info').attr('class','animate__animated animate__fadeInLeft');
+  animeWhenVisible(oObj,'animate__fadeInLeft')
+  $(this).find('.banner-info').remove();
+  oObj.insertAfter($(this).closest('.p-2'));
+});
+$('.awa_banner_right.apx_animate').each(function(){
+  animeWhenVisible($(this).find('.carousel-info'),'animate__fadeInRight');
+  animeWhenVisible($(this).find('.banner-info'),'animate__fadeInRight');
+});
+// $('.apx_animate').each(function(){
+//   animeWhenVisible($(this).find('.carousel-info'),'animate__fadeInLeft');
+// });
+
+$.fn.isOnScreen = function(){
+  var win = $(window);
+  var viewport = {
+      top : win.scrollTop(),
+      left : win.scrollLeft()
+  };
+  viewport.right = viewport.left + win.width();
+  viewport.bottom = viewport.top + win.height();
+
+  var bounds = this.offset();
+  bounds.right = bounds.left + this.outerWidth();
+  bounds.bottom = bounds.top + this.outerHeight();
+
+  return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+
+};
 
 
-
-
-
+function animeWhenVisible(oObj, animation){
+  window.addEventListener('scroll', function (event) {
+    if(oObj.isOnScreen() === true && !oObj.hasClass(animation)) {
+      //setTimeout(function(){
+        oObj.addClass(animation).addClass('animate__slow').addClass('animate__animated');
+      //}, 500);
+    }  
+  });
+  window.addEventListener('load', function (event) {
+    if(oObj.isOnScreen() === true && !oObj.hasClass(animation)) {
+      //setTimeout(function(){
+        oObj.addClass(animation).addClass('animate__slow').addClass('animate__animated');
+      //}, 500);
+    }  
+  });
+}
 
 
 $('body').css('opacity','1');  

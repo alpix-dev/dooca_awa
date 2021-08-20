@@ -1,5 +1,47 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap');*/
+@font-face {
+    font-family: "Lulo Clean";
+    src: url("https://cdn.jsdelivr.net/gh/alpix-dev/dooca_awa/Lulo-Clean-W01-One-Bold.ttf") format("truetype");         
+
+}
+@font-face {
+    font-family: "Avenir";
+    src: url("https://cdn.jsdelivr.net/gh/alpix-dev/dooca_awa/AvenirNextLTPro-Regular.otf") format("opentype");         
+    font-weight:400
+}
+@font-face {
+    font-family: "Avenir";
+    src: url("https://cdn.jsdelivr.net/gh/alpix-dev/dooca_awa/AvenirNextLTPro-Medium.otf") format("opentype");         
+    font-weight:600
+}
+:root {
+    --m-ff: 'Poppins', sans-serif;
+    --m-fs: 15px;
+    --m-fw: 500;
+    --m-ls: 1px;
+    --m-tt: none;
+    --h1-ff: 'Lulo Clean', sans-serif;
+    --h1-fs: 38px;
+    --h1-fw: 600;
+    --h1-ls: 0px;
+    --h1-tt: lowercase;
+    --h2-ff: 'Poppins', sans-serif;
+    --h2-fs: 15px;
+    --h2-fw: 500;
+    --h2-ls: 0px;
+    --h2-tt: none;
+    --h3-ff: 'Montserrat', sans-serif;
+    --h3-fs: 16px;
+    --h3-fw: 500;
+    --h3-ls: 0px;
+    --h3-tt: none;
+    --tx-ff: 'Montserrat', sans-serif;
+    --tx-fs: 14px;
+    --tx-fw: 400;
+    --tx-ls: 0px;
+    --tx-tt: none;
+}
 
 .product-card .product-card-action{display:none!important;}
 .product-card .product-title .text{
@@ -58,15 +100,15 @@ background: #415f2b;
     justify-content:center!important;
 }
 .header.header-2.no-logo-padding .navigation-link{
-    font-size: 13px;
-    text-transform: uppercase;
+    font-size: 18px;
+    text-transform: initial;
     letter-spacing: 0;
     color: #587b3f;
     padding: 1.8rem 0!important;
     margin: 0 1rem;
-    font-weight:300;
+    font-weight: 300;
 }
-.header.header-1 .header-bottom, .header.header-2 .header-bottom{border-top:1px solid #f2f2f2}
+.header.header-1 .header-bottom, .header.header-2 .header-bottom{border-top:1px solid #f2f2f2;}
 
 .smart-button img,
 .nav-icon img{
@@ -244,7 +286,7 @@ body{overflow-x:hidden;}
     padding: 5px 0!important;
 }
 .awa_vantagens{
-    background: #f9f9f9;
+    background: #587b3f;
     padding: 1rem 0!important;
 }
 .awa_vantagens .nav-contact .icon{display:none!important;}
@@ -253,7 +295,7 @@ body{overflow-x:hidden;}
 .awa_vantagens a{
     text-transform: uppercase;
     font-size: 11px;
-    color: #131313;
+    color: #fff;
     letter-spacing: 1px;
 }
 
@@ -267,7 +309,7 @@ body{overflow-x:hidden;}
     height: 3px;
     width: 3px;
     border-radius: 50%;
-    background: #587b3f;
+    background: #fff;
     display: inline-block;
     vertical-align: middle;
     margin: 0 15px;
@@ -317,7 +359,79 @@ body{overflow-x:hidden;}
 .h1,.h2{font-weight:300;}
 
 
-.awa_banner-left .carousel-info .banners-carousel-content{text-align:left;}
+.awa_banner_left .banners-carousel-content{text-align:left;}
+
+.banners-carousel-content .h1{font-weight:bold;}
+
+
+.carousel-caption{padding:0 3rem;}
+.awa_banner_left .carousel-info{
+    max-width: 300px;
+    margin: 0 auto 0 0;
+}
+.awa_banner_right .banner-info{max-width:100%;width:600px;margin:0 0 0 auto;}
+
+.outside_title .h3{
+    font-family: var(--h1-ff);
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 22px;
+    text-align: center;
+    display: block;
+    padding: 0rem 0;
+    margin: 2rem 0;
+}
+.awa_text_outside .col-12.col-lg-4{
+    display: flex;
+    flex-direction: column;
+}
+
+/* .header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+} */
+
+.header,
+.header .header-box,
+.header .logo-link,
+.header .navigation-link,
+.header .smart-button img,
+.header .nav-icon img,
+.awa_vantagens{transition:all .5s}
+
+header:not(.is-pinned),
+header:not(.is-pinned) .header-box{
+    background-color: transparent!important;
+}
+header:not(.is-pinned) .logo-link,
+.header:not(.is-pinned).no-logo-padding .navigation-link,
+.header:not(.is-pinned) .smart-button img,
+.header:not(.is-pinned) .nav-icon img{
+    filter: brightness(0) invert(1);
+}
+.header:not(.is-pinned) .header-bottom{border-top-color:transparent;}
+.header:not(.is-pinned) .awa_vantagens{
+    background: transparent;
+    /* border-top: 1px solid #f2f2f2; */
+}
+.header:not(.is-pinned) .awa_vantagens a{color:#fff}
+.header:not(.is-pinned) .awa_vantagens .col-auto:not(:first-child):before {
+    background: #fff;    
+}
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.awa_banner_right .banners-carousel-content{text-align:right}
+
+
+
+
+
+
 
 @media(min-width:990px){
     .product-info-content {top:150px!important}

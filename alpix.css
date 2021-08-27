@@ -122,12 +122,13 @@ background: #415f2b;
 .header-fixed{display:none!important;}
 
 header{position:sticky;top:-1px;}
-
+.header-mobile .nav-menu i{color:#fff;}
 header.is-pinned{
     box-shadow: 0px 0px 15px rgb(0 0 0 / 20%);
     background: rgba(255,255,255,1);
     
 }
+header.is-pinned .header-mobile .nav-menu i{color:#587b3f;}
 header.is-pinned .header-box,
 header.is-pinned .header-bottom, .header.header-2 .header-bottom{background:none;}
 /* .logo .logo-link .img-fluid{transition:all .5s} */
@@ -558,11 +559,14 @@ body:not(.page--index) header{
 
 .custom-banners{
     display: grid;
-    grid-template-rows: 60vh 60vh;
+    grid-auto-rows:60vh;
     grid-template-columns: 33vw 33vw 33vw;
     gap:10px;
+    margin-bottom:30px;
 }
 
+.collection-minibanner{background-size:cover;background-position:center center;}
+.collection-minibanner img{opacity:0;}
 .collection-minibanner,
 .collection-minibanner a{
     display: block!important;
@@ -574,3 +578,73 @@ body:not(.page--index) header{
     max-width: 100%;
 }
 .collection-minibanner img{max-width:100%;min-height:100%;min-width:100%;}
+
+.awa-collection-content{
+    background:#e8e6e6;
+    padding:6%;
+}
+.page--collection h1.h1{color: #424a3d;font-size:50px;margin-bottom: 60px!important;}
+.collection-seo p{font-size:18px;}
+.collection-banner{border:0;}
+.footer-newsletter{margin-top:7rem;}
+.footer-security .mb-4{margin:0!important}
+
+/* main{overflow-x:hidden;} */
+
+.products-related{border:0!important;}
+.product-gallery .thumb{
+    padding: 0!important;
+    border: 0;
+}
+@media(min-width:990px){
+    .product-info-content{padding-top:5rem!important;}
+}
+@media(max-width:990px){
+    .page--collection h1.h1{
+        font-size: 30px;
+        text-align: center;
+        margin: 30px auto!important;
+    }
+    .custom-banners{
+        grid-template-columns: 50vw 50vw;
+        grid-auto-rows: 30vh;
+    }
+
+    ::-webkit-scrollbar {
+        width: 0px;
+    }
+
+    .footer-newsletter{flex-direction:column}
+
+    .smart-button img, .nav-icon img{margin:0;}
+    .smart-search.modal-s{margin-right: .7rem;}
+
+    :root {
+        --m-fs: 15px;
+        --m-ls: 1px;
+        --h1-fs: 24px;
+        --h1-ls: 0px;
+        --h2-fs: 15px;
+        --h2-ls: 0px;
+        --h3-fs: 16px;
+        --h3-ls: 0px;
+        --tx-fs: 14px;
+        --tx-ls: 0px;
+    }
+
+    .nav-user span {
+        display: block;
+    }
+
+    #sideMenu .close-side{
+        width: 50px;
+        text-align: center;
+        right: 0;
+        padding: 6px;
+    }
+    #sideMenu .close-side .icon.md-36{
+        font-size: 20px;
+    margin: 5px 0;
+    }
+    .product-info-content{padding:3rem!important;}
+}

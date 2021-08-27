@@ -99,6 +99,12 @@ window.addEventListener('load', function(event) {
       $(this).css('height',h + 'px');
     });
   }, 100);
+  
+  if($('.page--product').length > 0 && window.innerWidth > 990){
+    let h = $('.header').innerHeight() + 100;
+    console.log(h)
+    $('.product-info-content').css('top',h + 'px!important');
+  }
 });
 
 window.addEventListener('resize', function(event) {
@@ -149,10 +155,14 @@ $.fn.isOnScreen = function(){
   };
   viewport.right = viewport.left + win.width();
   viewport.bottom = viewport.top + win.height();
-
-  var bounds = this.offset();
-  bounds.right = bounds.left + this.outerWidth();
-  bounds.bottom = bounds.top + this.outerHeight();
+  
+  try{
+    var bounds = $(this).offset();
+    bounds.right = bounds.left + this.outerWidth();
+    bounds.bottom = bounds.top + this.outerHeight();
+  }catch(e){
+    
+  }
 
   return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
 
@@ -195,9 +205,22 @@ console.log(banners_das_categorias);
 if(banners_das_categorias[cat_slug] != undefined){
     $('<div class="row mt-3 custom-banners justify-content-between align-items-center"></div>').appendTo('.collection-banner > .container-fluid');          
     $.each(banners_das_categorias[cat_slug], function(k, i){
-        $('<div class="text-center align-items-center my-4 col-md-4 col-xs-6 collection-minibanner"><a class="d-block" href="'+ i.link +'"><img src="'+ i.imagem +'"/></a></div>').appendTo('.custom-banners');
+        $('<div class="text-center align-items-center my-4 col-md-4 col-xs-6 collection-minibanner" style="background-image:url('+ i.imagem +');"><a class="d-block" href="'+ i.link +'"><img src="'+ i.imagem +'"/></a></div>').appendTo('.custom-banners');
     });
 }	
+
+
+if($('.page--collection').length > 0 && $('.collection-banner.col-12').length > 0 && $('.collection-seo').length > 0){
+  let catTitle = $('.collection-banner.col-12 img').attr('alt');
+  $('.collection-banner.col-12').closest('.col-12').attr('class','collection-banner col-md-4 col-12');
+  $('.collection-seo').insertAfter('.collection-banner.col-md-4');
+  $('.collection-seo').wrap('<div class="col awa-collection-content"></div>');
+  let removeThis = $('h1.h1').parent();
+  $('h1.h1').prependTo('.awa-collection-content');
+  removeThis.remove();
+}
+
+
 
 $('body').css('opacity','1');  
 

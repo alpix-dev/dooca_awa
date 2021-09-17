@@ -648,3 +648,35 @@ body:not(.page--index) header{
     }
     .product-info-content{padding:3rem!important;}
 }
+
+@media(min-width:990px){
+    .theme-custom-modal > .container > .row{
+        display:flex;
+        flex-direction:row!important;
+    }
+    .theme-custom-modal > .container > .row > div:first-child{
+        flex:0 0 60%;
+    }
+    .theme-custom-modal > .container > .row > div:last-child{
+        flex:0 0 40%
+    }
+    .theme-custom-modal.theme-custom-modal{
+        max-width:1000px;
+    }
+}
+.theme-custom-modal .h2{
+    text-align: left;
+    text-transform: uppercase;
+}
+.theme-custom-modal .text{
+    font-weight: bolder;
+    font-family: 'Lulo Clean';
+    text-align: left;
+    font-size: 30px;
+    color: #587b3f;
+    margin: 3rem 0 8rem 0;
+}
+.page-header{margin-bottom:5rem;border:0!important}
+.page-header h1{font-size:32px;}
+
+body:not(.page--index) .product-card .product-title{margin-top:10px;}
